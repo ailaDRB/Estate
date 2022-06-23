@@ -2,50 +2,44 @@
 
   {
    "Id": 1,
-   "Name":"Street Pancras, London,",
+   "SellRent": 1,
+   "Name":"30 Churchill Place,London ",
    "Type": "Office Space",
-   "Price": 15000
+   "Price": 25000
  },
  {
   "Id": 2,
-  "Name":"Pancras, London,",
+  "SellRent": 2,
+  "Name":"77 Leadenhall Street, London",
   "Type": "Office Space",
   "Price": 15000
 },
 {
   "Id": 3,
-  "Name":"Street, London,",
+  "SellRent": 3,
+  "Name":"1 Waterhouse Square, London",
   "Type": "Office Space",
   "Price": 15000
 },
 {
   "Id": 4,
-  "Name":"Street Pancras, London,",
-  "Type": "Office Space",
+  "SellRent": 4,
+  "Name":"Arrow Point, London",
+  "Type": "Warehouse",
   "Price": 15000
 },
 {
   "Id": 5,
-  "Name":"Street Pancras, London,",
-  "Type": "Office Space",
-  "Price": 15000
+  "SellRent": 5,
+  "Name":"Spean Bridge, Highland",
+  "Type": "Land",
+  "Price": 70000
 },
 {
   "Id": 6,
-  "Name":"Street Pancras, London,",
-  "Type": "Office Space",
-  "Price": 15000
-},
-{
-  "Id": 7,
-  "Name":"Street Pancras, London,",
-  "Type": "Office Space",
-  "Price": 15000
-},
-{
-  "Id": 8,
-  "Name":"Street Pancras, London,",
-  "Type": "Office Space",
-  "Price": 15000
+  "SellRent": 6,
+  "Name":"Big Yellow, Hounslow ,",
+  "Type": "Warehouse",
+  "Price": 1680
 }
 ]
