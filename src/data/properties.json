@@ -1,0 +1,51 @@
+[
+
+  {
+   "Id": 1,
+   "Name":"Street Pancras, London,",
+   "Type": "Office Space",
+   "Price": 15000
+ },
+ {
+  "Id": 2,
+  "Name":"Pancras, London,",
+  "Type": "Office Space",
+  "Price": 15000
+},
+{
+  "Id": 3,
+  "Name":"Street, London,",
+  "Type": "Office Space",
+  "Price": 15000
+},
+{
+  "Id": 4,
+  "Name":"Street Pancras, London,",
+  "Type": "Office Space",
+  "Price": 15000
+},
+{
+  "Id": 5,
+  "Name":"Street Pancras, London,",
+  "Type": "Office Space",
+  "Price": 15000
+},
+{
+  "Id": 6,
+  "Name":"Street Pancras, London,",
+  "Type": "Office Space",
+  "Price": 15000
+},
+{
+  "Id": 7,
+  "Name":"Street Pancras, London,",
+  "Type": "Office Space",
+  "Price": 15000
+},
+{
+  "Id": 8,
+  "Name":"Street Pancras, London,",
+  "Type": "Office Space",
+  "Price": 15000
+}
+]
