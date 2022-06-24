@@ -2,44 +2,49 @@
 
   {
    "Id": 1,
-   "SellRent": 1,
+   "SellRent": 2,
    "Name":"30 Churchill Place,London ",
    "Type": "Office Space",
-   "Price": 25000
+   "Price": 25000,
+   "Image": "prop-1"
  },
  {
   "Id": 2,
   "SellRent": 2,
   "Name":"77 Leadenhall Street, London",
   "Type": "Office Space",
-  "Price": 15000
+  "Price": 15000,
+  "Image": "prop-2"
 },
 {
   "Id": 3,
-  "SellRent": 3,
+  "SellRent": 1,
   "Name":"1 Waterhouse Square, London",
   "Type": "Office Space",
   "Price": 15000
 },
 {
   "Id": 4,
-  "SellRent": 4,
+  "SellRent": 1,
   "Name":"Arrow Point, London",
   "Type": "Warehouse",
-  "Price": 15000
+  "Price": 15000,
+  "Image": "prop-4"
 },
 {
   "Id": 5,
-  "SellRent": 5,
+  "SellRent": 1,
   "Name":"Spean Bridge, Highland",
   "Type": "Land",
-  "Price": 70000
+  "Price": 70000,
+  "Image": "prop-5"
 },
 {
   "Id": 6,
-  "SellRent": 6,
-  "Name":"Big Yellow, Hounslow ,",
+  "SellRent": 2,
+  "Name":"Big Yellow, Hounslow ",
   "Type": "Warehouse",
-  "Price": 1680
+  "Price": 1680,
+  "Image": "prop-6"
 }
 ]
