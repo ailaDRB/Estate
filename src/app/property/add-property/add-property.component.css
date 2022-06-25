@@ -1,0 +1,7 @@
+.photo-control {
+  min-height: 300px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px dashed rgb(189, 92, 72);
+  margin: 5px;
+}
