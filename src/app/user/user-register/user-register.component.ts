@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, EmailValidator, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { User } from 'src/app/model/user';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
   selector: 'app-user-register',
@@ -13,7 +14,9 @@ export class UserRegisterComponent implements OnInit {
   registerationForm: FormGroup;
   user: User;
   userSubmitted: boolean;
-  constructor(private fb: FormBuilder, private userService: UserServiceService ) { }
+  constructor(private fb: FormBuilder,
+              private userService: UserServiceService,
+             private alertify: AlertifyService ) { }
 
   ngOnInit(): void {
    // this.registerationForm = new FormGroup( {
@@ -42,7 +45,35 @@ export class UserRegisterComponent implements OnInit {
       { notmatched: true }
 
 };
-get userName() {
+
+
+  onSubmit(){
+    console.log(this.registerationForm.value);
+    this.userSubmitted = true;
+
+
+    if (this.registerationForm.valid) {
+   // this.user = Object.assign(this.user, this.registerationForm.value);
+    this.userService.addUser(this.userData());
+    this.registerationForm.reset();
+    this.userSubmitted = false;
+
+    this.alertify.success('Congrats, you are successfully registered');
+     } else{
+      this.alertify.error('kindly provides the required fiels');
+
+  }
+ }
+ userData(): User {
+  return this.user = {
+      userName: this.userName.value,
+      email: this.email.value,
+      password: this.password.value,
+      mobile: this.mobile.value
+  };
+ }
+ ///
+ get userName() {
   return this.registerationForm.get('userName') as FormControl;
 }
 get email() {
@@ -57,26 +88,6 @@ get confirmPassword() {
  get mobile() {
     return this.registerationForm.get('mobile') as FormControl;
  }
-
-  onSubmit(){
-    console.log(this.registerationForm.value);
-    this.userSubmitted = true;
-
-
-    if (this.registerationForm.valid) {
-   // this.user = Object.assign(this.user, this.registerationForm.value);
-    this.userService.addUser(this.userData());
-    this.registerationForm.reset();
-    this.userSubmitted = false;
-  }
- }
- userData(): User {
-  return this.user = {
-      userName: this.userName.value,
-      email: this.email.value,
-      password: this.password.value,
-      mobile: this.mobile.value
-  };
- }
+////
 
 }
