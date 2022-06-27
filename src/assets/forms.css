@@ -1,9 +1,9 @@
 .ng-invalid.ng-touched {
-  border-color: brown;
+  border-color: rgb(243, 196, 79);
 }
 
 .error-block {
-  color: brown;
+  color: rgb(243, 196, 79);
 }
 
 .btn-group > label[ng-reflect-btn-radio] {

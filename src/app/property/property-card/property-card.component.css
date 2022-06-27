@@ -4,12 +4,12 @@
 
 .card-body h1 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: brown;
+  color: rgb(243, 196, 79);
 }
 
 .font-highlight {
   font-style: italic;
-  color: brown;
+  color: rgb(243, 196, 79);
 }
 
 .card-img-wrapper{
@@ -22,7 +22,7 @@
   transition-duration: 500ms;
   transition-timing-function: ease-out;
   height: 250px;
-  color: #9d4432ed;
+  color: rgb(243, 196, 79);
   opacity: .7;
 }
 
