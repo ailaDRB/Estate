@@ -2,7 +2,7 @@
   <div class="col-8 shadow-lg p-0 bg-white">
     <div class="card">
        <div class="card-header">
-          <h3> List your Property</h3>
+          <h3> Listing </h3>
       </div>
       <div class="card-body">
      <form (ngSubmit)='onSubmit()' [formGroup]="addPropertyForm">
@@ -14,10 +14,10 @@
               <div class="btn-group"
               btnRadioGroup
               formControlName="SellRent" >
-                <label class="btn btn-outline-primary mr-2"
+                <label class="btn btn-outline-warning mr-2"
                 btnRadio= 1 role="button" name="SellRent">Sell</label>
 
-                <label class="btn btn-outline-primary "
+                <label class="btn btn-outline-warning "
                 btnRadio=2 role="button" name="SellRent">Rent</label>
                 </div>
                 <div class="error-block" *ngIf="">
@@ -32,7 +32,7 @@
               [ngModelOptions] = "{standalone: true}">
                 <label
                 *ngFor="let bhk of ['1','2','3','4']"
-                class="btn btn-outline-primary mr-2"
+                class="btn btn-outline-warning mr-2"
                 [btnRadio]= "bhk" tabindex= "0" role="button" name="BHK">{{bhk}}</label>
               </div>
             </div>
@@ -44,7 +44,7 @@
               [(ngModel)]="propertyView.PType">
                 <label
                 *ngFor="let ptype of propertyTypes"
-                class="btn btn-outline-primary mr-2"
+                class="btn btn-outline-warning mr-2"
                 [btnRadio]= "ptype" tabindex= "0" role="button"
                 name="PropType">{{ptype}}
               </label>
@@ -59,7 +59,7 @@
                 name="FType">
                 <label
                 *ngFor="let ftype of furnishTypes"
-                class="btn btn-outline-primary mr-2"
+                class="btn btn-outline-warning mr-2"
                 [btnRadio]= "ftype" tabindex= "0" role="button"
                 name="furnishTypes">{{ftype}}</label>
               </div>
@@ -90,7 +90,7 @@
             </div>
 
               <div class="form-group col-12">
-              <button type="button" class="btn btn-danger w-100 m-2"
+              <button type="button" class="btn btn-warning w-100 m-2"
               (click)="selectTab(1)">Next</button>
               </div>
           </tab>
@@ -129,10 +129,10 @@
             </div>
 
             <div class="form-group col-12">
-              <button type="button" class="btn btn-primary w-100 m-2"
+              <button type="button" class="btn btn-warning w-100 m-2"
               (click)="selectTab(2)">Next</button>
 
-              <button type="button" class="btn btn-primary w-100 m-2"
+              <button type="button" class="btn btn-warning w-100 m-2"
               (click)="selectTab(0)">Back</button>
             </div>
         </tab>
@@ -160,10 +160,10 @@
           </div>
 
             <div class="form-group col-12">
-              <button type="button" class="btn btn-primary w-100 m-2"
+              <button type="button" class="btn btn-warning w-100 m-2"
               (click)="selectTab(3)">Next</button>
 
-              <button type="button" class="btn btn-primary w-100 m-2"
+              <button type="button" class="btn btn-warning w-100 m-2"
               (click)="selectTab(1)">Back</button>
             </div>
         </tab>
@@ -208,10 +208,10 @@
           </div>
 
           <div class="form-group col-12">
-              <button type="button" class="btn btn-danger w-100 m-2"
+              <button type="button" class="btn btn-warning w-100 m-2"
               (click)="selectTab(4)">Next</button>
 
-              <button type="button" class="btn btn-danger w-100 m-2"
+              <button type="button" class="btn btn-warning w-100 m-2"
               (click)="selectTab(2)">Back</button>
            </div>
         </tab>
@@ -226,10 +226,10 @@
             </div>
           </div>
           <div class="form-group col-12">
-            <button type="button" class="btn btn-danger w-100 m-2"
+            <button type="button" class="btn btn-warning w-100 m-2"
             (click)="selectTab(3)">Back</button>
-            <button type="reset" class="btn btn-danger w-100 m-2">Cancel</button>
-            <button type="submit" class="btn btn-danger w-100 m-2">Save</button>
+            <button type="reset" class="btn btn-warning w-100 m-2">Cancel</button>
+            <button type="submit" class="btn btn-warning w-100 m-2">Save</button>
 
 
           </div>

@@ -19,9 +19,9 @@
 .card-header {
   height: 42px;
   padding: 4px 10px !important;
-  background-color:brown !important;
+  background-color: rgb(243, 196, 79) !important;
 }
 
 .card-title {
-  color: brown ;
+  color: rgb(241, 241, 241) ;
 }
