@@ -4,12 +4,12 @@
 
 .card-body h1 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #9d4432;
+  color: brown;
 }
 
 .font-highlight {
   font-style: italic;
-  color: red;
+  color: brown;
 }
 
 .card-img-wrapper{

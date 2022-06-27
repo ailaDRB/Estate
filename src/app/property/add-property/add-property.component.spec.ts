@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { AddPropertyComponent } from './add-property.component';
+import {FormGroup, FormBuilder, Validators, FormControl, FormsModule } from '@angular/forms';
+
 
 describe('AddPropertyComponent', () => {
   let component: AddPropertyComponent;
