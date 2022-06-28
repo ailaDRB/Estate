@@ -8,16 +8,16 @@
      <form (ngSubmit)='onSubmit()' [formGroup]="addPropertyForm">
       <div class="tab-panel">
         <tabset class="member-tabset" #formTabs>
-          <tab heading="Basic Info" formGroupName="BasicInfo" >
+          <tab heading="Basic Info" formGroupName="BasicInfo">
             <div class="form-group col-12">
               <p>I want to</p>
               <div class="btn-group"
               btnRadioGroup
               formControlName="SellRent" >
-                <label class="btn btn-outline-warning mr-2"
+                <label class="btn btn-outline-danger mr-2"
                 btnRadio= 1 role="button" name="SellRent">Sell</label>
 
-                <label class="btn btn-outline-warning "
+                <label class="btn btn-outline-danger "
                 btnRadio=2 role="button" name="SellRent">Rent</label>
                 </div>
                 <div class="error-block" *ngIf="">
@@ -32,7 +32,7 @@
               [ngModelOptions] = "{standalone: true}">
                 <label
                 *ngFor="let bhk of ['1','2','3','4']"
-                class="btn btn-outline-warning mr-2"
+                class="btn btn-outline-danger mr-2"
                 [btnRadio]= "bhk" tabindex= "0" role="button" name="BHK">{{bhk}}</label>
               </div>
             </div>
@@ -44,7 +44,7 @@
               [(ngModel)]="propertyView.PType">
                 <label
                 *ngFor="let ptype of propertyTypes"
-                class="btn btn-outline-warning mr-2"
+                class="btn btn-outline-danger mr-2"
                 [btnRadio]= "ptype" tabindex= "0" role="button"
                 name="PropType">{{ptype}}
               </label>
@@ -59,7 +59,7 @@
                 name="FType">
                 <label
                 *ngFor="let ftype of furnishTypes"
-                class="btn btn-outline-warning mr-2"
+                class="btn btn-outline-danger mr-2"
                 [btnRadio]= "ftype" tabindex= "0" role="button"
                 name="furnishTypes">{{ftype}}</label>
               </div>
@@ -91,15 +91,14 @@
 
               <div class="form-group col-12">
               <button type="button" class="btn btn-warning w-100 m-2"
-              (click)="selectTab(1)">Next</button>
+              (click)="selectTab(1,BasicInfo.valid)"
+              >Next</button>
               </div>
           </tab>
-
-
           <tab heading="Pricing and Area"
           formGroupName="PriceInfo">
             <div class="form-group col-12">
-              <label>Price (in GBP)</label>
+              <label >Price (in GBP)</label>
               <input type="text" class="form-control"
               formControlName="Price"
               [(ngModel)]="propertyView.Price">
@@ -130,14 +129,14 @@
 
             <div class="form-group col-12">
               <button type="button" class="btn btn-warning w-100 m-2"
-              (click)="selectTab(2)">Next</button>
+              (click)="selectTab(2, PriceInfo.valid)">Next</button>
 
               <button type="button" class="btn btn-warning w-100 m-2"
-              (click)="selectTab(0)">Back</button>
+              (click)="selectTab(0, PriceInfo.valid)">Back</button>
             </div>
         </tab>
 
-        <tab heading="Address">
+        <tab heading="Address" [formGroupName]="AddressInfo">
 
           <div class="form-group col-12">
             <label>Floor</label>
@@ -161,14 +160,14 @@
 
             <div class="form-group col-12">
               <button type="button" class="btn btn-warning w-100 m-2"
-              (click)="selectTab(3)">Next</button>
+              (click)="selectTab(3, AddressInfo.valid)">Next</button>
 
               <button type="button" class="btn btn-warning w-100 m-2"
-              (click)="selectTab(1)">Back</button>
+              (click)="selectTab(1, AddressInfo.valid)">Back</button>
             </div>
         </tab>
 
-        <tab heading="Other Details">
+        <tab heading="Other Details" [formGroupName]="OtherInfo">
           <div class="form-group col-12">
             <label>Ready to Move</label><br/>
             <input type="radio" id='Yes' value='1' name="RTM">
@@ -179,7 +178,7 @@
           </div>
 
           <div class="form-group col-3">
-            <label>Possession/Avaialble From</label>
+            <label>Avaialble From</label>
             <input type="text"
            placeholder="Datepicker"
            class="form-control"
@@ -204,20 +203,19 @@
 
           <div class="form-group col-12">
             <label>Description</label>
-            <textarea type="text" class="form-control" rows="6"></textarea>
+            <textarea type="text" class="form-control"
+            formControlName="Description"
+             rows="6"></textarea>
           </div>
 
           <div class="form-group col-12">
               <button type="button" class="btn btn-warning w-100 m-2"
-              (click)="selectTab(4)">Next</button>
+              (click)="selectTab(4, OtherInfo.valid)">Next</button>
 
               <button type="button" class="btn btn-warning w-100 m-2"
-              (click)="selectTab(2)">Back</button>
+              (click)="selectTab(2, OtherInfo.valid)">Back</button>
            </div>
         </tab>
-
-
-
         <tab heading="Photos">
           <div class="form-group col-12">
             <div class="photo-control">

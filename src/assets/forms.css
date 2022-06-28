@@ -13,7 +13,7 @@
 }
 
 .card-header > h1, .card-header > h2, .card-header > h3 {
-  color: white;
+  color: rgb(212, 65, 65);
 }
 
 .card-header {
@@ -23,5 +23,5 @@
 }
 
 .card-title {
-  color: rgb(241, 241, 241) ;
+  color:rgb(212, 65, 65);
 }

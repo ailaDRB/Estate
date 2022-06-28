@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-warning fixed-top">
-  <a class="navbar-brand" href="/">Estate</a>
+  <a class="navbar-brand" href="/"style="color:red">Estate</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,15 +8,15 @@
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item">
-        <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/">Buy <span class="sr-only">(current)</span></a>
+        <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/"style="color:red">Buy <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link"  routerLinkActive="active" routerLink="/rent-property">Rent</a>
+        <a class="nav-link"  routerLinkActive="active" routerLink="/rent-property"style="color:red">Rent</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active"  routerLink="/add-property">Listing</a>
+        <a class="nav-link" routerLinkActive="active"  routerLink="/add-property"style="color:red">Listing</a>
       </li>
     </ul>
 
@@ -26,31 +26,33 @@
           <a class="nav-link"
           routerLink="user/register"
           routerLinkActive="active"
+          style="color:red"
           >Register</a>
         </li>
         <li *ngIf="!loggedin()" class="nav-item">
           <a class="nav-link"
           routerLink="user/login"
           routerLinkActive="active"
+          style="color:red"
           >Login</a>
         </li>
         <!-- <li *ngIf="loggedin()" class="nav-item">
           <a class="nav-link" (click)="onLogout()"
           >Logout</a>
         </li> -->
-        <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
-          <a href="#" class="dropdown-toggle text-light" dropdownToggle (click)="false">
+        <div *ngIf="loggedin()" class="dropdown mr-5" dropdown >
+          <a href="#" style="color:red" class="dropdown-toggle text-red" dropdownToggle (click)="false">
               Welcome {{loggedinUser}}
           </a>
-          <div class="dropdown-menu" *dropdownMenu>
+          <div class="dropdown-menu" *dropdownMenu >
               <a href="#"class="dropdown-item">
-                <i class="fas fa-tachometer-alt"></i> View Dashboard</a>
+                <i class="fas fa-tachometer-alt" style="color:red"></i> View Dashboard</a>
               <a href="#" class="dropdown-item">
-                <i class="far fa-user-circle"></i> My Profile</a>
+                <i class="far fa-user-circle"style="color:red"></i> My Profile</a>
               <a href="#" class="dropdown-item">
-                <i class="fas fa-key"></i> Change Password</a>
+                <i class="fas fa-key" style="color:red"></i> Change Password</a>
               <a (click)='onLogout()' class="dropdown-item">
-                <i class="fas fa-sign-out-alt"></i> Logout</a>
+                <i class="fas fa-sign-out-alt" style="color:red"></i> Logout</a>
           </div>
         </div>
       </ul>

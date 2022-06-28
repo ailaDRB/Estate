@@ -25,7 +25,7 @@
 }
 
 .member-tabset > .nav-tabs > li.active {
-  border-bottom: 4px solid #ecd87f;
+  border-bottom: 4px solid rgb(212, 65, 65);
   position: relative;
 }
 
