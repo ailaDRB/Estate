@@ -28,7 +28,6 @@ propertyTypes: Array<string> = ['Office', 'Warehouse', 'Land', 'Delivery center'
 furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished'];
 sellingTypes: Array<string> = ['Sale','Rent']
 
-
   propertyView: IPropertyBase = {
     Id: null,
     Name: '',
@@ -178,7 +177,6 @@ onBack() {
 }
 
 onSubmit() {
-
   console.log('Bravo, form Submitted');
   console.log ('SellRent='+ this.addPropertyForm.value.BasicInfo.SellRent)
   console.log(this.addPropertyForm);
