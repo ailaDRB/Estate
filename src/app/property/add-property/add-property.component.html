@@ -26,7 +26,7 @@
             </div>
 
             <div class="form-group col-12">
-              <p>BHK</p>
+              <p>How many</p>
               <div class="btn-group" btnRadioGroup
                [(ngModel)]="propertyView.BHK" name="BHK"
               [ngModelOptions] = "{standalone: true}">
@@ -187,9 +187,20 @@
            bsDatepicker
            [bsConfig]="{containerClass: 'theme-red', dateInputFormat: 'DD-MM-YYYY'}">
           </div>
-
+          <div class="form-group col-12">
+            <label>Truck dock door</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group col-12">
+            <label>Charging stations </label>
+            <input type="text" class="form-control">
+          </div>
           <div class="form-group col-12">
             <label>Age of Property</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group col-12">
+            <label>Storage area</label>
             <input type="text" class="form-control">
           </div>
 
