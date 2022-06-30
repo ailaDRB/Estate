@@ -39,9 +39,12 @@ export class PropertyListComponent implements OnInit {
     this.SearchCity = this.City;
 }
 
+
 onCityFilterClear() {
     this.SearchCity = '';
     this.City = '';
+
+
 }
 
 onSortDirection() {
