@@ -15,14 +15,16 @@
 
     </div>
   <div class="card-body p-2">
-    <h1 class="mb-0"> {{property.BHK}} BHK {{property.PType}} </h1>
+    <h1 class="mb-0"> {{property.BHK}}  {{property.PType}} For
+         <span *ngIf="property.SType != 'Rent'">Sale</span>
+         <span *ngIf="property.BType != 'Sale'">Rent</span> </h1>
 
     in {{property.Name}}
     <span *ngIf="property.Name">,</span>
     {{property.City}}
 
-    <h6  class="mt-2">{{property.FType}}
-    <span *ngIf="property.FType !== 'Unfurnished'">Furnished</span> | Ready to Move </h6>
+    <h6  class="mt-2">{{property.PType}}
+    <span *ngIf="property.FType !== 'Unfurnished'">Furnished</span> | On the market</h6>
 
     <hr class="mt-0 mb-2">
 

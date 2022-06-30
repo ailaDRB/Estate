@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { IPropertyBase } from 'src/app/model/ipropertybase';
+import { Property } from 'src/app/model/property';
+import { AlertifyService } from 'src/app/services/alertify.service';
+import { HousingService } from 'src/app/services/housing.service';
 
 
 
@@ -18,11 +21,13 @@ export class AddPropertyComponent implements OnInit {
   //@ViewChild('Form') addPropertyForm: NgForm;
   @ViewChild('formTabs') formTabs: TabsetComponent;
   addPropertyForm: FormGroup;
-  nextClicked: boolean;
+  property = new Property();
 
 // Will come from masters
-propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex'];
+propertyTypes: Array<string> = ['Office', 'Warehouse', 'Land', 'Delivery center'];
 furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished'];
+sellingTypes: Array<string> = ['Sale','Rent']
+
 
   propertyView: IPropertyBase = {
     Id: null,
@@ -33,33 +38,57 @@ furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished'];
     FType: '',
     BHK: 0,
     BuiltArea: 0,
-    City: ''
-
+    City: '',
+    SType: '',
+    BType: '',
   };
+  SellRent: any;
+  BHK: any;
+  PType: any;
+  Name: any;
+  City: any;
+  Price: any;
+  Security: any;
+  datePipe: any;
+  Description: any;
+  PossessionOn: any;
+  MainEntrance: any;
+  Gated: any;
+  RTM: any;
+  LandMark: any;
+  Address: any;
+  TotalFloor: any;
+  FloorNo: any;
+  CarpetArea: any;
+  BuiltArea: any;
 
-  constructor(private fb:FormBuilder,  private router: Router) { }
+  /////
+
+
+
+  constructor(private fb:FormBuilder,
+               private router: Router,
+               private housingService: HousingService,
+               private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.CreateAddPropertyForm();
 
+
   }
 
-  CreateAddPropertyForm(){
-    this.addPropertyForm = this.fb.group({
-        BasicInfo: this.fb.group({
+    CreateAddPropertyForm(){
+      this.addPropertyForm = this.fb.group({
+          BasicInfo: this.fb.group({
             SellRent: ['1' , Validators.required],
             PType: [null, Validators.required],
-            FType: [null, Validators.required],
             Name: [null, Validators.required],
-            City: [null, Validators.required]
           }),
           PriceInfo: this.fb.group({
             Price: [null, Validators.required],
-            BuiltArea: [null, Validators.required],
-            CarpetArea: [null],
-                Security: [0],
-                Maintenance: [0],
+            BuiltArea: [null, Validators.required]
         }),
+
         AddressInfo: this.fb.group({
           FloorNo: [null],
           TotalFloor: [null],
@@ -74,28 +103,74 @@ furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished'];
           Gated: [null],
           MainEntrance: [null],
           Description: [null]
-
       })
       });
       }
-/// get
+      /// get
+      get BasicInfo() {
+        return this.addPropertyForm.controls['BasicInfo'] as FormGroup;
+    }
 
+    get PriceInfo() {
+        return this.addPropertyForm.controls['PriceInfo'] as FormGroup;
+    }
 
-get BasicInfo() {
-  return this.addPropertyForm.controls['BasicInfo'] as FormGroup;
-}
+    get AddressInfo() {
+        return this.addPropertyForm.controls['AddressInfo'] as FormGroup;
+    }
 
-get PriceInfo() {
-  return this.addPropertyForm.controls ['PriceInfo'] as FormGroup;
-}
-get AddressInfo() {
-  return this.addPropertyForm.controls['AddressInfo']as FormGroup;
-}
+    get OtherInfo() {
+        return this.addPropertyForm.controls['OtherInfo'] as FormGroup;
+    }
+      //// end get
 
-get OtherInfo() {
-  return this.addPropertyForm.controls['OtherInfo'] as FormGroup;
+  mapProperty(): void{
+    this.property.SellRent = +this.SellRent.value;
+    this.property.bhk = this.BHK.value;
+        this.property.propertyTypeId = this.PType.value;
+        this.property.name = this.Name.value;
+        this.property.CityId = this.City.value;
+        this.property.furnishingTypeId = this.PType.value;
+        this.property.price = this.Price.value;
+        this.property.security = this.Security.value;
+        this.property.maintenance = this.MainEntrance.value;
+        this.property.builtArea = this.BuiltArea.value;
+        this.property.carpetArea = this.CarpetArea.value;
+        this.property.floorNo = this.FloorNo.value;
+        this.property.totalFloors = this.TotalFloor.value;
+        this.property.address = this.Address.value;
+        this.property.address2 = this.LandMark.value;
+        this.property.readyToMove = this.RTM.value;
+        this.property.gated = this.Gated.value;
+        this.property.mainEntrance = this.MainEntrance.value;
+        this.property.estPossessionOn =
+            this.datePipe.transform(this.PossessionOn.value,'MM/dd/yyyy');
+        this.property.description = this.Description.value;
+  }
+
+///
+allTabsValid(): boolean {
+  if (this.BasicInfo.invalid) {
+      this.formTabs.tabs[0].active = true;
+      return false;
+  }
+
+  if (this.PriceInfo.invalid) {
+      this.formTabs.tabs[1].active = true;
+      return false;
+  }
+
+  if (this.AddressInfo.invalid) {
+      this.formTabs.tabs[2].active = true;
+      return false;
+  }
+
+  if (this.OtherInfo.invalid) {
+      this.formTabs.tabs[3].active = true;
+      return false;
+  }
+  return true;
 }
-// end get
 
 
 onBack() {
@@ -103,28 +178,15 @@ onBack() {
 }
 
 onSubmit() {
-  this.nextClicked = true;
-  if (this.BasicInfo.invalid){
-    this.formTabs.tabs[0].active = true;
-    return;
-  }
-  if (this.PriceInfo.invalid){
-    this.formTabs.tabs[1].active = true;
-    return;
-  }
 
   console.log('Bravo, form Submitted');
   console.log ('SellRent='+ this.addPropertyForm.value.BasicInfo.SellRent)
   console.log(this.addPropertyForm);
+
 }
 
 selectTab(tabId: number) {
-  this.nextClicked = true;
-    this.formTabs.tabs[tabId].active = true;
+ this.formTabs.tabs[tabId].active = true;
   }
-
-}
-function PossessionOn() {
-  throw new Error('Function not implemented.');
 }
 
