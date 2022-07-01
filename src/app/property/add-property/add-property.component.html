@@ -63,10 +63,13 @@
                 [btnRadio]= "ftype" tabindex= "0" role="button"
                 name="furnishTypes">{{ftype}}</label>
               </div>
+              <div class="error-block" *ngIf="">
+                Please select furnishing type
+              </div>
             </div>
 
             <div class="form-group col-12">
-              <label>In building/Society/Project </label>
+              <label>Name of building/Society/Project </label>
               <input type="text"
                class="form-control"
               name="Name"
@@ -107,12 +110,16 @@
             </div>
 
             <div class="form-group col-12">
-              <label>Security (in  GBP)</label>
-              <input type="text" class="form-control">
-            </div>
+              <label>Security </label> <br/>
+            <input type="radio" id='Yes' value='1' name="RTM">
+            <label class="m-2">Yes</label>
+
+            <input type="radio" id="No" value='2' name="RTM">
+            <label class="m-2">No</label>
+          </div>
 
             <div class="form-group col-12">
-              <label>Maintenance (in  GBP)</label>
+              <label>Maintenance</label>
               <input type="text" class="form-control">
             </div>
 
@@ -122,11 +129,6 @@
               formControlName="BuiltArea"
               [(ngModel)]="propertyView.BuiltArea"
                >
-            </div>
-
-            <div class="form-group col-12">
-              <label>Carpet Area(in Sqr Feet)</label>
-              <input type="text" class="form-control">
             </div>
 
             <div class="form-group col-12">
@@ -141,12 +143,7 @@
         <tab heading="Address">
 
           <div class="form-group col-12">
-            <label>Floor</label>
-            <input type="text" class="form-control">
-          </div>
-
-          <div class="form-group col-12">
-            <label>Total Floor</label>
+            <label>Total Floor Number</label>
             <input type="text" class="form-control">
           </div>
 
@@ -171,7 +168,7 @@
 
         <tab heading="Other Details">
           <div class="form-group col-12">
-            <label>Availabilty </label><br/>
+            <label>Available now</label><br/>
             <input type="radio" id='Yes' value='1' name="RTM">
             <label class="m-2">Yes</label>
 
@@ -180,7 +177,7 @@
           </div>
 
           <div class="form-group col-3">
-            <label>Possession/Avaialble From</label>
+            <label>Avaialble From</label>
             <input type="text"
            placeholder="Datepicker"
            class="form-control"
@@ -188,32 +185,54 @@
            [bsConfig]="{containerClass: 'theme-red', dateInputFormat: 'DD-MM-YYYY'}">
           </div>
           <div class="form-group col-12">
-            <label>Truck dock door</label>
-            <input type="text" class="form-control">
+            <label> Truck dock door</label> <br/>
+            <input type="radio" id='Yes' value='1' name="RTM">
+            <label class="m-2">Yes</label>
+
+            <input type="radio" id="No" value='2' name="RTM">
+            <label class="m-2">No</label>
           </div>
+
           <div class="form-group col-12">
-            <label>Charging stations </label>
-            <input type="text" class="form-control">
+            <label>Charging station</label> <br/>
+            <input type="radio" id='Yes' value='1' name="RTM">
+            <label class="m-2">Yes</label>
+
+            <input type="radio" id="No" value='2' name="RTM">
+            <label class="m-2">No</label>
           </div>
+
           <div class="form-group col-12">
             <label>Age of Property</label>
             <input type="text" class="form-control">
           </div>
           <div class="form-group col-12">
-            <label>Storage area</label>
+            <label> Number of storage area</label>
             <input type="text" class="form-control">
           </div>
 
           <div class="form-group col-12">
-            <label>Gated Community</label>
-            <input type="text" class="form-control">
-          </div>
+            <label>Gated Community</label> <br/>
+            <input type="radio" id='Yes' value='1' name="RTM">
+            <label class="m-2">Yes</label>
 
+            <input type="radio" id="No" value='2' name="RTM">
+            <label class="m-2">No</label>
+          </div>
           <div class="form-group col-12">
-            <label>Main Entrance</label>
-            <input type="text" class="form-control">
+            <p>Main Entrance</p>
+            <div class="btn-group" btnRadioGroup
+            formControlName="MainEntrance">
+              <label class="btn btn-outline-danger mr-2"
+              btnRadio=East tabindex="0" role="button" name="Entrance">East</label>
+              <label class="btn btn-outline-danger"
+              btnRadio=West  tabindex="0" role="button" name="Entrance">West</label>
+              <label class="btn btn-outline-danger"
+              btnRadio=South  tabindex="0" role="button" name="Entrance">South</label>
+              <label class="btn btn-outline-danger"
+              btnRadio=North  tabindex="0" role="button" name="Entrance">North</label>
+            </div>
           </div>
-
           <div class="form-group col-12">
             <label>Description</label>
             <textarea type="text" class="form-control" rows="6"></textarea>
