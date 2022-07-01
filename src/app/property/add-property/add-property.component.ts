@@ -90,7 +90,7 @@ sellingTypes: Array<string> = ['Sale','Rent']
       OtherInfo: this.fb.group({
           RTM: [null, Validators.required],
           Possession: [null, Validators.required],
-          AOP: [null],
+          age: [null],
           Gated: [null],
           MainEntrance: [null],
           description: [null]
@@ -182,8 +182,8 @@ sellingTypes: Array<string> = ['Sale','Rent']
       return this.OtherInfo.controls['Possession'] as FormControl;
   }
 
-  get AOP() {
-      return this.OtherInfo.controls['AOP'] as FormControl;
+  get age() {
+      return this.OtherInfo.controls['age'] as FormControl;
   }
 
   get Gated() {
@@ -257,11 +257,12 @@ onSubmit() {
   console.log('Bravo, form Submitted');
   console.log ('SellRent='+ this.addPropertyForm.value.BasicInfo.SellRent)
   console.log(this.addPropertyForm);
+  this.alertify.success('We are currentley under maintenance your listing will be submitted momentarily, apologies for the inconvenience!');
 
 }
 
 selectTab(tabId: number) {
- this.formTabs.tabs[tabId].active = true;
+    this.formTabs.tabs[tabId].active = true;
   }
 }
 

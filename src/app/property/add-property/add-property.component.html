@@ -28,14 +28,22 @@
             <div class="form-group col-12">
               <p>How many</p>
               <div class="btn-group" btnRadioGroup
-               [(ngModel)]="propertyView.BHK" name="BHK"
+              name="BHK" [(ngModel)]="propertyView.BHK"
               [ngModelOptions] = "{standalone: true}">
+
                 <label
                 *ngFor="let bhk of ['1','2','3','4']"
                 class="btn btn-outline-danger mr-2"
-                [btnRadio]= "bhk" tabindex= "0" role="button" name="BHK">{{bhk}}</label>
+                [btnRadio]= "bhk" tabindex= "0" role="button"
+                name="BHK">
+                {{bhk}}
+              </label>
+            <div class="error-block" *ngIf="">
+              Please select how many
               </div>
-            </div>
+              </div>
+              </div>
+
 
             <div class="form-group col-12">
               <p>Property Type</p>
@@ -84,15 +92,15 @@
             </div>
 
             <div class="form-group col-12">
-              <label>city </label>
+              <label>City </label>
               <input type="text"
               class="form-control"
-               name="city"
+               name="City"
                [(ngModel)]="propertyView.city"
                [ngModelOptions]="{standalone: true} ">
             </div>
 
-              <div class="form-group col-12">
+            <div class="form-group col-12">
               <button type="button"
               class="btn btn-warning w-100 m-2"
               (click)="selectTab(1)"
@@ -207,7 +215,7 @@
           </div>
 
           <div class="form-group col-12">
-            <label>Age of Property [years]</label>
+            <label>Age of Property </label>
             <input type="text" class="form-control">
           </div>
           <div class="form-group col-12">
@@ -238,7 +246,7 @@
             </div>
           </div>
           <div class="form-group col-12">
-            <label>description</label>
+            <label>Description</label>
             <textarea type="text" class="form-control" rows="6"></textarea>
           </div>
 
