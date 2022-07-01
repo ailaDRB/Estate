@@ -10,7 +10,7 @@ export interface IPropertyBase{
   BHK: number;
   Image?: string;
   BuiltArea: number;
-  city: string;
+  City: string;
   propertyTypeId: number;
   propertyType: string;
   bhk: number;
@@ -20,7 +20,7 @@ export interface IPropertyBase{
   carpetarea?: number;
   Address: string;
   Address2?: string;
-  cityId: number;
+  CityId: number;
   floorNo?: string;
   TotalFloor?: string;
   readyToMove: boolean;

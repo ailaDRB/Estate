@@ -11,7 +11,7 @@ export class Property implements IPropertyBase {
   Price: number;
   BHK: number;
   BuiltArea: number;
-  city: string;
+  City: string;
   Image?: string;
   id: number;
   sellRent: number;
@@ -26,7 +26,7 @@ export class Property implements IPropertyBase {
   carpetarea?: number;
   Address: string;
   Address2?: string;
-  cityId: number;
+  CityId: number;
   floorNo?: string;
   TotalFloor?: string;
   readyToMove: boolean;

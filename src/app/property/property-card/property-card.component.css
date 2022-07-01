@@ -23,7 +23,7 @@
   transition-timing-function: ease-out;
   height: 250px;
   color: rgb(243, 196, 79);
-  opacity: .7;
+  opaCity: .7;
 }
 
 .card img{
@@ -40,12 +40,12 @@
   right: 0;
   margin-right: auto;
   margin-left: auto;
-  opacity: 0;
+  opaCity: 0;
 }
 
 .card-img-wrapper:hover .member-icons{
   bottom: 0;
-  opacity: 1;
+  opaCity: 1;
 }
 
 .animate{

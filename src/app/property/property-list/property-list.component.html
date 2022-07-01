@@ -1,13 +1,13 @@
-<label style="color: red;font-weight: 500;"> Filter city</label>
-<input [(ngModel)]='city'>
+<label style="color: red;font-weight: 500;"> Filter City</label>
+<input [(ngModel)]='City'>
 <button type="button" class="btn btn-warning"
-(click)="oncityFilter()">Search</button>
+(click)="onCityFilter()">Search</button>
 <button type="button" class="btn btn-warning m-2"
-(click)="oncityFilterClear()">Clear</button> &nbsp;
+(click)="onCityFilterClear()">Clear</button> &nbsp;
 
 <label style="color: red;font-weight: 500;">Sort by &nbsp;</label>
 <select [(ngModel)] = 'SortbyParam'>
-  <option value="city">city</option>
+  <option value="City">City</option>
   <option value="Price">Price</option>
 </select>
 <button type="button" class="btn btn-warning"
@@ -18,7 +18,7 @@
 
 <div class="row">
   <div *ngFor="let property of properties
-  |filter:Searchcity:'city'
+  |filter:SearchCity:'City'
   |sort:[SortbyParam,SortDirection]"
    class="col-md-4">
     <div class="shadow-lg p-3 mb-4">

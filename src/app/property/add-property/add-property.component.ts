@@ -37,7 +37,7 @@ sellingTypes: Array<string> = ['Sale','Rent']
     FType: '',
     BHK: 0,
     BuiltArea: 0,
-    city: '',
+    City: '',
     SType: '',
     BType: '',
     propertyTypeId: 0,
@@ -48,7 +48,7 @@ sellingTypes: Array<string> = ['Sale','Rent']
     builtArea: 0,
     floorNo: '',
     Address: '',
-    cityId: 0,
+    CityId: 0,
     readyToMove: false,
     PosteadOn: undefined
   };
@@ -134,8 +134,8 @@ sellingTypes: Array<string> = ['Sale','Rent']
       return this.BasicInfo.controls['Name'] as FormControl;
   }
 
-  get city() {
-      return this.BasicInfo.controls['city'] as FormControl;
+  get City() {
+      return this.BasicInfo.controls['City'] as FormControl;
   }
 
   get Price() {
@@ -205,7 +205,7 @@ sellingTypes: Array<string> = ['Sale','Rent']
     this.property.bhk = this.BHK.value;
         this.property.propertyTypeId = this.PType.value;
         this.property.Name = this.Name.value;
-        this.property.cityId = this.city.value;
+        this.property.CityId = this.City.value;
         this.property.furnishingTypeId = this.PType.value;
         this.property.price = this.Price.value;
         this.property.Security = this.Security.value;
