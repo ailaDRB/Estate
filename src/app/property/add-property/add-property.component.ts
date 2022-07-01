@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, SelectMultipleControlValueAccessor, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { IPropertyBase } from 'src/app/model/ipropertybase';
@@ -25,7 +25,7 @@ export class AddPropertyComponent implements OnInit {
 
 // Will come from masters
 propertyTypes: Array<string> = ['Office', 'Warehouse', 'Land', 'Delivery center'];
-furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished'];
+furnishTypes: Array<string> = ['Fully', 'Unfurnished'];
 sellingTypes: Array<string> = ['Sale','Rent']
 
   propertyView: IPropertyBase = {
@@ -37,30 +37,22 @@ sellingTypes: Array<string> = ['Sale','Rent']
     FType: '',
     BHK: 0,
     BuiltArea: 0,
-    City: '',
+    city: '',
     SType: '',
     BType: '',
+    propertyTypeId: 0,
+    propertyType: '',
+    bhk: 0,
+    furnishingTypeId: 0,
+    furnishingType: '',
+    builtArea: 0,
+    floorNo: '',
+    Address: '',
+    cityId: 0,
+    readyToMove: false,
+    PosteadOn: undefined
   };
-  SellRent: any;
-  BHK: any;
-  PType: any;
-  Name: any;
-  City: any;
-  Price: any;
-  Security: any;
   datePipe: any;
-  Description: any;
-  PossessionOn: any;
-  MainEntrance: any;
-  Gated: any;
-  RTM: any;
-  LandMark: any;
-  Address: any;
-  TotalFloor: any;
-  FloorNo: any;
-  CarpetArea: any;
-  BuiltArea: any;
-
   /////
 
 
@@ -97,11 +89,11 @@ sellingTypes: Array<string> = ['Sale','Rent']
 
       OtherInfo: this.fb.group({
           RTM: [null, Validators.required],
-          PossessionOn: [null, Validators.required],
+          Possession: [null, Validators.required],
           AOP: [null],
           Gated: [null],
           MainEntrance: [null],
-          Description: [null]
+          description: [null]
       })
       });
       }
@@ -121,30 +113,115 @@ sellingTypes: Array<string> = ['Sale','Rent']
     get OtherInfo() {
         return this.addPropertyForm.controls['OtherInfo'] as FormGroup;
     }
+
+    get SellRent() {
+      return this.BasicInfo.controls['SellRent'] as FormControl;
+  }
+
+  get BHK() {
+      return this.BasicInfo.controls['BHK'] as FormControl;
+  }
+
+  get PType() {
+      return this.BasicInfo.controls['PType'] as FormControl;
+  }
+
+  get FType() {
+      return this.BasicInfo.controls['FType'] as FormControl;
+  }
+
+  get Name() {
+      return this.BasicInfo.controls['Name'] as FormControl;
+  }
+
+  get city() {
+      return this.BasicInfo.controls['city'] as FormControl;
+  }
+
+  get Price() {
+      return this.PriceInfo.controls['Price ']as FormControl;
+  }
+
+  get BuiltArea() {
+      return this.PriceInfo.controls['BuiltArea'] as FormControl;
+  }
+
+  get carpetarea() {
+      return this.PriceInfo.controls['carpetarea'] as FormControl;
+  }
+
+  get Security() {
+      return this.PriceInfo.controls['Security ']as FormControl;
+  }
+
+  get Maintenance() {
+      return this.PriceInfo.controls['Maintenance'] as FormControl;
+  }
+
+  get floorNo() {
+      return this.AddressInfo.controls['floorNo'] as FormControl;
+  }
+
+  get TotalFloor() {
+      return this.AddressInfo.controls['TotalFloor'] as FormControl;
+  }
+
+  get Address() {
+      return this.AddressInfo.controls['Address'] as FormControl;
+  }
+
+  get LandMark() {
+      return this.AddressInfo.controls['LandMark'] as FormControl;
+  }
+
+  get RTM() {
+      return this.OtherInfo.controls['RTM'] as FormControl;
+  }
+
+  get Possession() {
+      return this.OtherInfo.controls['Possession'] as FormControl;
+  }
+
+  get AOP() {
+      return this.OtherInfo.controls['AOP'] as FormControl;
+  }
+
+  get Gated() {
+      return this.OtherInfo.controls['Gated'] as FormControl;
+  }
+
+  get MainEntrance() {
+      return this.OtherInfo.controls['MainEntrance'] as FormControl;
+  }
+
+  get description() {
+      return this.OtherInfo.controls['description'] as FormControl;
+  }
+
       //// end get
 
   mapProperty(): void{
     this.property.SellRent = +this.SellRent.value;
     this.property.bhk = this.BHK.value;
         this.property.propertyTypeId = this.PType.value;
-        this.property.name = this.Name.value;
-        this.property.CityId = this.City.value;
+        this.property.Name = this.Name.value;
+        this.property.cityId = this.city.value;
         this.property.furnishingTypeId = this.PType.value;
         this.property.price = this.Price.value;
-        this.property.security = this.Security.value;
-        this.property.maintenance = this.MainEntrance.value;
+        this.property.Security = this.Security.value;
+        this.property.Maintenance = this.MainEntrance.value;
         this.property.builtArea = this.BuiltArea.value;
-        this.property.carpetArea = this.CarpetArea.value;
-        this.property.floorNo = this.FloorNo.value;
-        this.property.totalFloors = this.TotalFloor.value;
-        this.property.address = this.Address.value;
-        this.property.address2 = this.LandMark.value;
+        this.property.carpetarea = this.carpetarea.value;
+        this.property.floorNo = this.floorNo.value;
+        this.property.TotalFloor = this.TotalFloor.value;
+        this.property.Address = this.Address.value;
+        this.property.Address2 = this.LandMark.value;
         this.property.readyToMove = this.RTM.value;
         this.property.gated = this.Gated.value;
-        this.property.mainEntrance = this.MainEntrance.value;
-        this.property.estPossessionOn =
-            this.datePipe.transform(this.PossessionOn.value,'MM/dd/yyyy');
-        this.property.description = this.Description.value;
+        this.property.MainEntrance = this.MainEntrance.value;
+        this.property.Possession =
+            this.datePipe.transform(this.Possession.value,'MM/dd/yyyy');
+        this.property.description = this.description.value;
   }
 
 ///

@@ -11,8 +11,8 @@ import { IPropertyBase } from 'src/app/model/ipropertybase';
 export class PropertyListComponent implements OnInit {
   SellRent =1;
   properties: IPropertyBase[];
-  City = '';
-  SearchCity = '';
+  city = '';
+  Searchcity = '';
   SortbyParam = '';
   SortDirection = 'asc';
 
@@ -35,14 +35,14 @@ export class PropertyListComponent implements OnInit {
     );
 
   }
-  onCityFilter() {
-    this.SearchCity = this.City;
+  oncityFilter() {
+    this.Searchcity = this.city;
 }
 
 
-onCityFilterClear() {
-    this.SearchCity = '';
-    this.City = '';
+oncityFilterClear() {
+    this.Searchcity = '';
+    this.city = '';
 
 
 }

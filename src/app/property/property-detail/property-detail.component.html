@@ -2,33 +2,36 @@
   <div class="col-sm-4 p-0">
     <div class="card">
       <div class="card-img-wrapper">
-        <img class="card-img-top" src="assets/images/office.jpeg">
+        <img *ngIf= "property.Image" class="card-img-top" src="assets/images/{{property.Image}}.jpeg">
+        <img *ngIf= "!property.Image" class="card-img-top" src="assets/images/office.jpeg">
       </div>
       <div class="card-body">
-        <h1 class="card-title"> Rent or Buy</h1>
+        <h1 class="card-title">{{property.Name}}</h1>
         <div>
-            <strong> Waterhouse Square</strong>
+            <strong> {{property.BHK}}
+              {{property.PType}} For £ {{property.Price}}</strong>
         </div>
         <div>
-           <strong>in London</strong>
+           <strong>in {{property.city}}</strong>
         </div> <hr>
         <div>
-            <strong>Build Area:  </strong> 1200
+            <strong>Build Area:  </strong>  {{property.BuiltArea}}
            Sqft
         </div>
 
         <div>
-            <strong>Carpet Area: </strong>900
+            <strong>Storage Area: </strong>
+            {{property.carpetarea}}
             Sqft
         </div>
         <div>
-            <strong>Furnishing Type: </strong>Fully
-
+            <strong>Furnishing Type: </strong>
+            {{property.FType}}
         </div>
         <div>
             <strong>Available Now </strong>
-            <span *ngIf="">Purchase</span>
-            <span *ngIf="">Rent</span>
+            <span *ngIf="property.sellRent == 1">Purchase</span>
+            <span *ngIf="property.sellRent == 2">Rent</span>
         </div>
 
     </div>
@@ -49,56 +52,50 @@
               <div class="col-sm-6">
                   <div class="heading">
                       <strong>Project Name</strong>
-                      <p>Waterhouse Square</p>
+                      <p>{{property.Name}}</p>
                   </div>
 
                   <div class="heading">
                       <strong>Floor Number</strong>
-                      <p>6</p>
+                      <p>{{property.floorNo}} of {{property.TotalFloor}}</p>
                   </div>
 
                   <div class="heading">
                       <strong>Age of Property</strong>
-                      <p>8</p>
+                      <p>{{property.age}}</p>
                   </div>
 
                   <div class="heading">
-                      <strong>Posession</strong>
-                      <p>Available now</p>
+                      <strong>Possession</strong>
+                      <p>{{property.Possession}}</p>
                   </div>
               </div>
 
               <div class="col-sm-6">
                   <div class="heading">
                       <strong>Main Entrance</strong>
-                      <p>South</p>
+                      <p>{{property.MainEntrance}}</p>
                   </div>
 
                   <div class="heading">
                       <strong>Gated Community</strong>
-                      <p>1</p>
-                      <p *ngIf="">No</p>
+                      <p *ngIf="property.gated">Yes</p>
+                      <p *ngIf="!property.gated">No</p>
                   </div>
 
                   <div class="heading">
                       <strong>Security Deposit</strong>
-                      <p>Contact for more information</p>
+                      <p>{{property.Security}}</p>
                   </div>
                   <div class="heading">
                       <strong>Maintenance</strong>
-                      <p>200</p>
+                      <p>{{property.Maintenance}}</p>
                   </div>
               </div>
               <div class="col-sm-12">
                   <div class="heading">
                       <strong>About Property</strong>
-                      <p>A creative oasis amid the metropolitan buzz of one of London’s
-                        hottest neighborhoods,including onsite showers and convenient bike
-                        storage. After work, the West End provides a perfect backdrop
-                        for celebrating team wins in style. Catch a train at nearby and
-                        Farringdon stations to get where you need to go quickly.
-                        For a beautiful office space that puts you in the center of the
-                        action, schedule a visit to  Waterhouse Square today.
+                      <p>{{property.description}}
                       </p>
                   </div>
               </div>
@@ -109,14 +106,56 @@
             <h1>Address</h1>
             <div class="heading">
                 <strong></strong><br/>
-                <strong> 1 Waterhouse Square</strong><br/>
-                <strong> London</strong>
+                <strong>{{property.Address}}</strong><br/>
+                <strong>{{property.Address2}}</strong><br/>
+                <strong>{{property.city}}</strong>
             </div>
         </div>
 
         </tab>
         <tab heading="Photos">
-          <p> Only for registered user!</p>
+          <p></p>
+          <carousel>
+            <slide>
+              <img src="assets/images/prop-1.jpeg" alt="first slide" style="display: block; width: 100%;">
+            </slide>
+            <slide>
+              <img src="assets/images/prop-2.jpeg" alt="second slide" style="display: block; width: 100%;">
+            </slide>
+            <slide>
+              <img src="assets/images/prop-3.jpeg" alt="third slide" style="display: block; width: 100%;">
+            </slide>
+            <slide>
+              <img src="assets/images/prop-4.jpeg" alt="third slide" style="display: block; width: 100%;">
+            </slide>
+            <slide>
+              <img src="assets/images/prop-5.jpeg" alt="third slide" style="display: block; width: 100%;">
+            </slide>
+            <slide>
+              <img src="assets/images/prop-6.jpeg" alt="third slide" style="display: block; width: 100%;">
+            </slide>
+            <slide>
+              <img src="assets/images/prop-7.jpeg" alt="third slide" style="display: block; width: 100%;">
+            </slide>
+            <slide>
+              <img src="assets/images/prop-8.jpeg" alt="third slide" style="display: block; width: 100%;">
+            </slide>
+            <slide>
+              <img src="assets/images/prop-9.jpeg" alt="third slide" style="display: block; width: 100%;">
+            </slide>
+            <slide>
+              <img src="assets/images/prop-11.jpeg" alt="third slide" style="display: block; width: 100%;">
+            </slide>
+            <slide>
+              <img src="assets/images/prop-12.jpeg" alt="third slide" style="display: block; width: 100%;">
+            </slide>
+          </carousel>
+
+
+
+
+
+
         </tab>
         <tab heading="Contact">
           <h1>Contact Detail</h1>

@@ -8,8 +8,29 @@ export interface IPropertyBase{
   BType: string,
   Price: number;
   BHK: number;
-  BuiltArea: number;
-  City: string;
   Image?: string;
-
+  BuiltArea: number;
+  city: string;
+  propertyTypeId: number;
+  propertyType: string;
+  bhk: number;
+  furnishingTypeId: number;
+  furnishingType: string;
+  builtArea: number;
+  carpetarea?: number;
+  Address: string;
+  Address2?: string;
+  cityId: number;
+  floorNo?: string;
+  TotalFloor?: string;
+  readyToMove: boolean;
+  age?: string;
+  MainEntrance?: string;
+  Security?: number;
+  gated?: boolean;
+  Maintenance?: number;
+  Possession?: string;
+  photo?: string;
+  description?: string;
+  PosteadOn: any;
 }

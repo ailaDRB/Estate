@@ -9,8 +9,11 @@ import { HousingService } from 'src/app/services/housing.service';
   styleUrls: ['./property-detail.component.css']
 })
 export class PropertyDetailComponent implements OnInit {
+
+
+
   public propertyId: number;
-  property = new Property  ;
+  property = new Property()  ;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -23,8 +26,11 @@ export class PropertyDetailComponent implements OnInit {
     this.route.params.subscribe(
       (params) => {
         this.propertyId = +params['id'];
-        this.housingServices.addProperty
-        (this.propertyId)
+        this.housingServices.getProperty(this.propertyId). subscribe(
+          (data: Property ) => {
+            this.property = data;
+          }
+        );
       }
     );
   }

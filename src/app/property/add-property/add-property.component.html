@@ -84,11 +84,11 @@
             </div>
 
             <div class="form-group col-12">
-              <label>City </label>
+              <label>city </label>
               <input type="text"
               class="form-control"
-               name="City"
-               [(ngModel)]="propertyView.City"
+               name="city"
+               [(ngModel)]="propertyView.city"
                [ngModelOptions]="{standalone: true} ">
             </div>
 
@@ -119,8 +119,12 @@
           </div>
 
             <div class="form-group col-12">
-              <label>Maintenance</label>
-              <input type="text" class="form-control">
+              <label>Maintenance</label><br/>
+              <input type="radio" id='Yes' value='1' name="R">
+              <label class="m-2">Yes</label>
+
+              <input type="radio" id="No" value='2' name="R">
+              <label class="m-2">No</label>
             </div>
 
             <div class="form-group col-12">
@@ -169,10 +173,10 @@
         <tab heading="Other Details">
           <div class="form-group col-12">
             <label>Available now</label><br/>
-            <input type="radio" id='Yes' value='1' name="RTM">
+            <input type="radio" id='Yes' value='1' name="M">
             <label class="m-2">Yes</label>
 
-            <input type="radio" id="No" value='2' name="RTM">
+            <input type="radio" id="No" value='2' name="M">
             <label class="m-2">No</label>
           </div>
 
@@ -186,37 +190,37 @@
           </div>
           <div class="form-group col-12">
             <label> Truck dock door</label> <br/>
-            <input type="radio" id='Yes' value='1' name="RTM">
+            <input type="radio" id='Yes' value='1' name="T">
             <label class="m-2">Yes</label>
 
-            <input type="radio" id="No" value='2' name="RTM">
+            <input type="radio" id="No" value='2' name="T">
             <label class="m-2">No</label>
           </div>
 
           <div class="form-group col-12">
             <label>Charging station</label> <br/>
-            <input type="radio" id='Yes' value='1' name="RTM">
+            <input type="radio" id='Yes' value='1' name="station">
             <label class="m-2">Yes</label>
 
-            <input type="radio" id="No" value='2' name="RTM">
+            <input type="radio" id="No" value='2' name="station">
             <label class="m-2">No</label>
           </div>
 
           <div class="form-group col-12">
-            <label>Age of Property</label>
+            <label>Age of Property [years]</label>
             <input type="text" class="form-control">
           </div>
           <div class="form-group col-12">
-            <label> Number of storage area</label>
+            <label> Number of storage</label>
             <input type="text" class="form-control">
           </div>
 
           <div class="form-group col-12">
             <label>Gated Community</label> <br/>
-            <input type="radio" id='Yes' value='1' name="RTM">
+            <input type="radio" id='Yes' value='1' name="gate">
             <label class="m-2">Yes</label>
 
-            <input type="radio" id="No" value='2' name="RTM">
+            <input type="radio" id="No" value='2' name="gate">
             <label class="m-2">No</label>
           </div>
           <div class="form-group col-12">
@@ -234,7 +238,7 @@
             </div>
           </div>
           <div class="form-group col-12">
-            <label>Description</label>
+            <label>description</label>
             <textarea type="text" class="form-control" rows="6"></textarea>
           </div>
 
@@ -252,7 +256,7 @@
         <tab heading="Photos">
           <div class="form-group col-12">
             <div class="photo-control">
-                <button class="mt-5" type="button">Upload</button> <br>
+                <button class=" btn btn-warning mt-5" type="button">Upload</button> <br>
                 This is under construction
             </div>
           </div>
